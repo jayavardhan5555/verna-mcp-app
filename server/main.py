@@ -49,7 +49,7 @@ def create_app() -> ASGIApp:
     mcp = FastMCP("Verna Weather Gateway", stateless_http=True, json_response=True, instructions=(
         "Production MCP gateway for OpenWeatherMap API"
         "Tools: get_current_weather, get_weather_forecast, get_weather_by_coordinates, search_cities"
-    ))
+    ), allowed_hosts=["*"])
     from server.weather import register_tools
     register_tools(mcp, settings)
 
